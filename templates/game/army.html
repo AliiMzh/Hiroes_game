@@ -1,0 +1,22 @@
+<HTML>
+	<head>
+		<title>
+			My Game
+		</title>
+	</head>
+	<body>
+		<h1>Hiroes</h1>
+		<h2> {{ user.username }} </h2>
+		<h2>{{ user.first_name }}'s army</h2>
+		{% if warriors %}
+		  <h3> Warriors: </h3>
+		  <ul>
+              {% for war in warriors %}
+			    <li><a href="{% url 'game:warprofile' war.pk %}"> {{ war.name }} </a></li>
+			  {% endfor %}
+        </ul>
+		{% else %}
+		<p> no warrior for {{user.username}} </p>
+		{% endif %}
+	</body>
+</HTML>   

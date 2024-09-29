@@ -17,6 +17,9 @@ Including another URLconf
 from django.urls import path
 from . import views
 
+app_name = 'game'
 urlpatterns = [
-        path("w/<int:wid>", views.warprofile),
+        path("w/<int:pk>", views.WarProfile.as_view(), name = "warprofile"),
+        path("army/<int:userid>", views.army, name = "army"),
+        path("spells/<int:spellid>", views.spells, name = "spells")
 ]
