@@ -9,6 +9,7 @@ class warrior(models.Model):
     ap = models.FloatField(default=10.0)
     dp = models.FloatField(default=0.1)
     hit = models.IntegerField(default = 5) #this is each warrior maximum hit count in a single war.
+    image = models.ImageField(default= "بدون تصویر" ,upload_to='images')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def attack (w1,w2):

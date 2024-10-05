@@ -23,6 +23,7 @@ class WarProfile(generic.DetailView):
 def army(request, userid):
     user = get_object_or_404(User, pk = userid)
     warriors = warrior.objects.filter(user = user)
+    image = warrior.objects.filter(user=user)
     #w = warrior.objects.all()[0]
     #w2 = warrior.objects.all()[1]
     #print("hiiiiiiiiiiiiiiiiiiiiiiiiii")
@@ -30,7 +31,7 @@ def army(request, userid):
 
     context = {
         'user': user,
-        'warriors': warriors
+        'warriors': warriors,
         }
     return render(request, 'game/army.html', context)
 
